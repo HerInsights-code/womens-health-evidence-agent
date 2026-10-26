@@ -1,0 +1,7 @@
+{
+    "sleep": ["bad sleep", "waking at night", "tired all day"],
+    "cycle": ["heavy periods", "missed period", "painful periods", "irregular cycle"],
+    "mood": ["low mood", "anxious", "mood swings", "brain fog"],
+    "body": ["skin changes", "weight changes", "hair loss", "pelvic pain"],
+    "conditions": ["pcos", "endometriosis", "postpartum depression", "menopause", "queer mental health", "gender-affirming care"]
+  }
