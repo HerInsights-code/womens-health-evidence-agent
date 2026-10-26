@@ -1,9 +1,12 @@
 import json
 
-from app.tagging import load_dictionary, validate_tags
+from app.tagging import extract_json_array, load_dictionary, validate_tags
 
 DICTIONARY = {"pcos", "insomnia"}
 SYNONYMS = {"polycystic ovary syndrome": "pcos", "endo": "endometriosis"}
+
+
+# --- validate_tags ---------------------------------------------------------
 
 
 def test_unknown_tag_is_rejected():
@@ -50,6 +53,9 @@ def test_empty_input_returns_two_empty_lists():
     assert rejected == []
 
 
+# --- load_dictionary -------------------------------------------------------
+
+
 def test_load_dictionary_flat_set_and_groups(tmp_path):
     groups = {
         "sleep": ["bad sleep", "tired all day"],
@@ -62,3 +68,40 @@ def test_load_dictionary_flat_set_and_groups(tmp_path):
 
     assert flat_set == {"bad sleep", "tired all day", "pcos"}
     assert groups_dict == groups
+
+
+# --- extract_json_array ----------------------------------------------------
+
+
+def test_extract_plain_array():
+    assert extract_json_array('["pcos", "bad sleep"]') == ["pcos", "bad sleep"]
+
+
+def test_extract_array_wrapped_in_reasoning():
+    reply = (
+        "Let me think. She mentions heavy bleeding and tiredness, so those "
+        'map to the cycle and sleep groups.\n\n["heavy periods", "tired all day"]'
+    )
+    assert extract_json_array(reply) == ["heavy periods", "tired all day"]
+
+
+def test_extract_array_in_markdown_fence():
+    reply = 'Here are the tags:\n```json\n["pcos"]\n```'
+    assert extract_json_array(reply) == ["pcos"]
+
+
+def test_extract_empty_array():
+    assert extract_json_array("Nothing fits. []") == []
+
+
+def test_extract_no_array_returns_empty():
+    assert extract_json_array("I could not find any matching tags.") == []
+
+
+def test_extract_malformed_json_returns_empty():
+    assert extract_json_array('["pcos", ') == []
+
+
+def test_extract_array_nested_in_object():
+    """A model that wraps its answer in an object still gives usable tags."""
+    assert extract_json_array('{"tags": ["pcos"]}') == ["pcos"]
