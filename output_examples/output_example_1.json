@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "intent": "symptom.sleep",
+  "confidence": 1.0,
+  "tag_groups": [
+    "sleep",
+    "body",
+    "cycle"
+  ],
+  "tags_considered": 11,
+  "tags": [
+    "heavy periods",
+    "skin changes",
+    "tired all day"
+  ],
+  "rejected": [],
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b"
+}

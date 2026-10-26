@@ -1,0 +1,169 @@
+{
+    "registryVersion": 1,
+    "intents": [
+      {
+        "id": "symptom.cycle",
+        "category": "symptom",
+        "tagGroup": "cycle",
+        "description": "Menstrual cycle, periods, bleeding, cramps",
+        "capabilities": ["tags.cycle"],
+        "riskClass": "low",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [
+          ["period", 3], ["periods", 3], ["bleeding", 3], ["bleed", 2],
+          ["cramp", 3], ["cramps", 3], ["menstrual", 3], ["cycle", 2],
+          ["spotting", 3], ["flow", 2], ["tampon", 2], ["pad", 1],
+          ["late", 1], ["missed", 2], ["irregular", 2]
+        ],
+        "examples": [
+          "my periods have been really heavy for months",
+          "I get terrible cramps every cycle",
+          "my period is late again and I'm not sure why"
+        ],
+        "version": 1
+      },
+      {
+        "id": "symptom.sleep",
+        "category": "symptom",
+        "tagGroup": "sleep",
+        "description": "Sleep quality, tiredness, energy levels",
+        "capabilities": ["tags.sleep"],
+        "riskClass": "low",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [
+          ["sleep", 3], ["sleeping", 3], ["asleep", 2], ["insomnia", 3],
+          ["tired", 3], ["exhausted", 3], ["exhaustion", 3], ["fatigue", 3],
+          ["energy", 2], ["awake", 2], ["rest", 1], ["drained", 2],
+          ["wiped out", 2], ["no energy", 3]
+        ],
+        "examples": [
+          "I'm exhausted all the time no matter how much I sleep",
+          "I keep waking up at three in the morning",
+          "I have no energy for anything these days"
+        ],
+        "version": 1
+      },
+      {
+        "id": "symptom.mood",
+        "category": "symptom",
+        "tagGroup": "mood",
+        "description": "Mood, anxiety, low feelings, concentration",
+        "capabilities": ["tags.mood"],
+        "riskClass": "medium",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [
+          ["mood", 3], ["anxious", 3], ["anxiety", 3], ["depressed", 3],
+          ["depression", 3], ["low", 2], ["sad", 2], ["crying", 2],
+          ["irritable", 2], ["angry", 1], ["brain fog", 3], ["foggy", 2],
+          ["concentrate", 2], ["forgetful", 2], ["overwhelmed", 2]
+        ],
+        "examples": [
+          "I've been so low and I cry at nothing",
+          "my anxiety has been awful since my cycle changed",
+          "I can't concentrate on anything, it's like brain fog"
+        ],
+        "version": 1
+      },
+      {
+        "id": "symptom.body",
+        "category": "symptom",
+        "tagGroup": "body",
+        "description": "Skin, weight, hair, pain and other bodily changes",
+        "capabilities": ["tags.body"],
+        "riskClass": "low",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [
+          ["skin", 3], ["acne", 3], ["breaking out", 3], ["breakouts", 3],
+          ["weight", 3], ["gained", 2], ["lost", 1], ["hair", 3],
+          ["hair loss", 3], ["thinning", 2], ["pain", 2], ["pelvic", 3],
+          ["bloated", 2], ["bloating", 2], ["sore", 1]
+        ],
+        "examples": [
+          "my skin keeps breaking out like I'm a teenager",
+          "I've gained weight without changing anything",
+          "my hair is thinning and I don't know why"
+        ],
+        "version": 1
+      },
+      {
+        "id": "condition.named",
+        "category": "condition",
+        "tagGroup": "conditions",
+        "description": "She names a diagnosis or suspected condition",
+        "capabilities": ["tags.conditions"],
+        "riskClass": "low",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [
+          ["pcos", 4], ["polycystic", 4], ["endometriosis", 4], ["endo", 3],
+          ["postpartum", 4], ["ppd", 3], ["menopause", 4], ["perimenopause", 4],
+          ["diagnosed", 2], ["diagnosis", 2], ["thyroid", 3],
+          ["gender-affirming", 4], ["transition", 2], ["hrt", 3]
+        ],
+        "examples": [
+          "I think I might have PCOS but my doctor brushes me off",
+          "I was diagnosed with endometriosis two years ago",
+          "I'm going through perimenopause and nobody warned me"
+        ],
+        "version": 1
+      },
+      {
+        "id": "general.unclear",
+        "category": "general",
+        "tagGroup": null,
+        "description": "Safe fallback when nothing else scores",
+        "capabilities": [],
+        "riskClass": "low",
+        "surfaces": ["web", "cli"],
+        "roles": ["user"],
+        "triggers": [],
+        "examples": ["just feeling off lately", "not sure how to describe it"],
+        "version": 1
+      }
+    ],
+    "crisisTriggers": [
+        "want to die",
+        "wanna die",
+        "want to be dead",
+        "better off dead",
+        "better off without me",
+        "dont want to be here",
+        "don't want to be here",
+        "do not want to be here",
+        "dont want to live",
+        "don't want to live",
+        "do not want to live",
+        "not want to be here",
+        "end my life",
+        "end it all",
+        "take my own life",
+        "kill myself",
+        "killing myself",
+        "hurt myself",
+        "hurting myself",
+        "harm myself",
+        "harming myself",
+        "self harm",
+        "self-harm",
+        "cut myself",
+        "no reason to live",
+        "no point in living",
+        "no point going on",
+        "cant go on",
+        "can't go on",
+        "cannot go on",
+        "give up on life",
+        "suicide",
+        "suicidal",
+        "overdose"
+      ],
+    "injectionPatterns": [
+      "ignore previous instructions", "ignore all previous",
+      "disregard the above", "</system>", "[inst]", "system prompt",
+      "you are now", "new instructions:"
+    ]
+  }

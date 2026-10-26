@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "intent": "condition.named",
+  "confidence": 1.0,
+  "tag_groups": [
+    "conditions",
+    "body"
+  ],
+  "tags_considered": 10,
+  "tags": [
+    "pcos",
+    "weight changes"
+  ],
+  "rejected": [],
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b"
+}

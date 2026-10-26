@@ -1,0 +1,7 @@
+{
+  "status": "blocked",
+  "reason": "the person may be in crisis; route to support, not research",
+  "flags": [
+    "crisis"
+  ]
+}
