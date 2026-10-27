@@ -6,6 +6,8 @@ from app.explain import (
     explain_match,
     load_articles,
     match_and_explain,
+    match_with_retry,
+    related_tags,
     rank_articles,
     tag_confidence,
     user_phrases,
@@ -107,3 +109,49 @@ def test_real_data_example_1_returns_results():
     out = match_and_explain(query, ["heavy periods", "skin changes", "tired all day"], load_articles(), load_synonyms())
     assert out["results"], "expected at least one match from data/articles.csv"
     assert all(r["matched_tags"] for r in out["results"])
+
+
+GROUPS = {"cycle": ["heavy periods", "clotting"], "conditions": ["pcos", "endometriosis"]}
+
+
+def counting_fetch(articles):
+    calls = []
+
+    def fetch(tags):
+        calls.append(list(tags))
+        return articles
+
+    return fetch, calls
+
+
+def test_related_tags_skip_conditions_group():
+    assert related_tags(["clotting", "pcos"], GROUPS) == {"heavy periods": ("clotting", "cycle")}
+
+
+def test_no_retry_when_first_search_matches():
+    fetch, calls = counting_fetch([article("Heavy periods review")])
+    out = match_with_retry("heavy periods", ["heavy periods"], fetch, SYNONYMS, GROUPS)
+    assert out["results"] and out["retries"] == [] and len(calls) == 1
+
+
+def test_retry_widens_once_and_marks_results_related():
+    fetch, calls = counting_fetch([article("Heavy periods review")])
+    out = match_with_retry("I keep clotting", ["clotting"], fetch, SYNONYMS, GROUPS)
+    assert len(calls) == 2 and calls[1] == ["heavy periods"]
+    assert out["retries"][0]["widened_to"] == ["heavy periods"]
+    result = out["results"][0]
+    assert result["related"] is True
+    assert result["reasons"][0]["related_to"] == "clotting"
+    assert out["tag_evidence"][0]["tag"] == "clotting"
+
+
+def test_retry_stops_after_one_attempt_when_still_nothing():
+    fetch, calls = counting_fetch([article("Unrelated")])
+    out = match_with_retry("I keep clotting", ["clotting"], fetch, SYNONYMS, GROUPS)
+    assert out["results"] == [] and len(calls) == 2
+
+
+def test_retry_skipped_when_nothing_related():
+    fetch, calls = counting_fetch([article("Unrelated")])
+    out = match_with_retry("pcos", ["pcos"], fetch, SYNONYMS, GROUPS)
+    assert len(calls) == 1 and out["retries"][0]["widened_to"] == []

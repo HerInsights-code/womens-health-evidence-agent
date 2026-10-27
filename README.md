@@ -25,9 +25,15 @@ python run.py input_examples/input_example_1.json
 Input: *"I've had really heavy periods for about six months, I'm exhausted all
 the time no matter how much I sleep, and my skin keeps breaking out."*
 
-Output: tags `heavy periods`, `no energy`, `acne on jawline`, and five papers
-ranked by shared tags — including one on heavy menstrual bleeding, iron
-deficiency and cognitive symptoms. She never typed "anaemia."
+Output: tags `heavy periods`, `tired all day`, `skin changes`, and the top three
+papers, each with a plain-language reason it matches. The first covers two of
+her three concerns — heavy menstrual bleeding, iron deficiency and iron
+deficiency anemia — and says why:
+
+> heavy periods: she said "heavy periods", and the article mentions "heavy menstrual bleeding".
+> tired all day: she said "exhausted", and the article is about this.
+
+She never typed "anaemia."
 
 ## How it works
 
@@ -43,8 +49,28 @@ deficiency and cognitive symptoms. She never typed "anaemia."
 5. **Tagging.** The tagger sends only the tags from the routed groups — typically
    40 of 86 — to NVIDIA Nemotron through Meterless Nightshift. Returned tags are
    validated against the dictionary; anything invented is dropped.
+   **Feedback loop 1:** if no tag survives, the tagger is asked once more with
+   the full dictionary; if still none, the run returns `status: partial`.
 6. **Matching.** Zetaris scores the research corpus by shared tags in SQL and
-   returns the top matches with the tags that caused each one.
+   returns up to 20 candidates. If Zetaris is unreachable, the agent falls back
+   to `data/articles.csv`.
+7. **Ranking and explanation.** The top three are ranked by how many of her
+   concerns each covers, then by concerns she named in her own words over ones
+   the tagger inferred, then by year. Each result says which of her words led to
+   each tag ("she said *exhausted*"), where the article supports it ("the
+   article mentions *heavy menstrual bleeding*"), which concerns it does not
+   cover, and a citation. Each tag carries a confidence: she said it, she said
+   something similar, or the agent inferred it.
+   **Feedback loop 2:** if nothing matches, the search widens once to related
+   tags in the same group (never across conditions), and those results are
+   labelled as related.
+8. **Evidence check.** **Feedback loop 3:** every quoted phrase must appear in
+   her text and every tag must be on the article; anything unsupported is
+   removed before the result is returned.
+
+Every step, retry and removed claim is recorded in the run's `steps` and
+`retries`. The loop lives in `app/main.py`; ranking, explanation and the
+evidence check in `app/explain.py`.
 
 ## Architecture
 
@@ -60,7 +86,9 @@ deficiency and cognitive symptoms. She never typed "anaemia."
 womens-health-evidence-agent/
 ├── app/
 │   ├── __init__.py
+│   ├── main.py                 # agent loop: routing, tagging retry, matching, explain
 │   ├── tagging.py              # dictionary load, model tagging, validation
+│   ├── explain.py              # ranking, explanations, matcher retry, evidence check
 │   ├── adapters/
 │   │   ├── zetaris.py          # SQL over the Zetaris REST API; article matching
 │   │   └── nightshift.py       # Meterless provider: auth, status, chat
@@ -87,7 +115,12 @@ womens-health-evidence-agent/
 ├── tests/
 │   ├── test_tagging.py         # validation, dictionary load, JSON extraction
 │   ├── test_nightshift.py      # URL normalisation, auth states, live chat
-│   └── test_scout_intent.py    # Scout Intent conformance against the spec
+│   ├── test_scout_intent.py    # Scout Intent conformance against the spec
+│   ├── test_explain.py         # ranking, explanations, matcher retry, evidence check
+│   └── test_loop.py            # agent loop: tagging retry, partial results, failures
+├── demo/
+│   ├── build_page.py           # builds the results page from a real run
+│   └── results.html            # the results page judges read
 ├── input_examples/             # 4 sample inputs
 ├── output_examples/            # matching outputs
 ├── logs/                       # Nightshift receipt and sample traces
@@ -173,6 +206,23 @@ python scripts/run_all_examples.py
 
 Writes `output_examples/updated_output_from_<input file>.json` for each.
 
+Without Nightshift, pass the tags directly (still validated against the
+dictionary):
+
+```bash
+python run.py input_examples/input_example_1.json --tags "heavy periods,tired all day,skin changes"
+```
+
+The results page, built from a real run using the saved Nemotron tags:
+
+```bash
+python demo/build_page.py      # writes demo/results.html
+open demo/results.html
+```
+
+It shows her words with the phrases behind each tag highlighted, the top three
+papers with the reason each one matches, the crisis path, and the run log.
+
 With Docker:
 
 ```bash
@@ -193,8 +243,10 @@ python -m pytest tests/ -v
 `tests/test_scout_intent.py` is the engine's conformance suite: registry rules,
 the Stage-1 latency budget, confidence bands, multi-intent routing, the four
 clarification triggers, injection and crisis blocking, and contract signing,
-tampering, expiry and registry drift. Live tests skip cleanly when Zetaris or
-Nightshift are not running.
+tampering, expiry and registry drift. `tests/test_explain.py` and
+`tests/test_loop.py` cover ranking, explanations, the evidence check and all
+three feedback loops with no network calls. Live tests skip cleanly when Zetaris
+or Nightshift are not running.
 
 ## Sponsor technology
 
@@ -270,9 +322,13 @@ see, and refuses to call it at all when someone is in distress.
   matching only, so unusual phrasing may route poorly or fall to clarification.
 - **Zetaris queries through to a local server.** The REST tables federate to
   `scripts/serve_data.py`, which must be running. Stopping it breaks the queries.
-- **Not built.** The explanation layer (per-tag phrase attribution and confidence)
-  and a full `SAMPLE_MODE` offline path are described in our plan but are not in
-  this submission. The agent returns the tags behind each match, not a written
-  explanation of each one.
+- **Not built.** A full `SAMPLE_MODE` offline path is described in our plan but
+  is not in this submission. `--tags` and the local article fallback cover most
+  of it: the agent runs without Nightshift or Zetaris, but not without the
+  Python dependencies.
+- **Explanations are rule-based.** Phrase attribution finds a tag or one of its
+  listed synonyms in her text; phrasing outside the synonym list is marked
+  "inferred" rather than quoted. There is no study grading yet, so ties fall
+  back to publication year.
 - **Not medical advice.** This surfaces published research. It does not diagnose,
   and it does not replace clinical judgment.
