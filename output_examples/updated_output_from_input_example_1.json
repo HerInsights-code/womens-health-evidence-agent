@@ -14,53 +14,183 @@
   "tags_considered": 41,
   "tags": [
     "heavy periods",
-    "no energy",
+    "tired all day",
     "acne on jawline"
   ],
   "rejected": [],
+  "article_source": "zetaris",
   "matches": [
     {
-      "title": "Menstrual health: a definition for policy, practice, and research.",
-      "tags": "irregular cycle;heavy periods;waiting for a diagnosis",
-      "shared_tags": "1",
-      "year": "2021",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/33910492/"
-    },
-    {
+      "rank": 1,
       "title": "Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue.",
-      "tags": "heavy periods;tired all day;brain fog",
-      "shared_tags": "1",
       "year": "2023",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37538011/"
+      "matched_tags": [
+        "heavy periods",
+        "tired all day"
+      ],
+      "why": "Shares 2 of your 3 tags (heavy periods, tired all day). It does not cover acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        },
+        {
+          "tag": "tired all day",
+          "user_phrase": "exhausted",
+          "article_phrase": null,
+          "text": "tired all day: you said \"exhausted\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37538011/",
+      "doi": ""
     },
     {
-      "title": "Heavy menstrual bleeding and dysmenorrhea in adolescents: A systematic review of self-management strategies, quality of life, and unmet needs.",
-      "tags": "heavy periods;painful periods",
-      "shared_tags": "1",
-      "year": "2024",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38654586/"
-    },
-    {
-      "title": "Screening of Perinatal Depression Using the Edinburgh Postpartum Depression Scale.",
-      "tags": "postpartum depression;low mood;no energy;mood swings",
-      "shared_tags": "1",
-      "year": "2022",
-      "source": "PubMed;Semantic Scholar",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35253138/"
-    },
-    {
-      "title": "Comparison of Clinical, Metabolic, and Hormonal Profiles in Obese Versus Lean Women With Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis.",
-      "tags": "irregular cycle;acne on jawline;dark patches on skin;unwanted hair growth",
-      "shared_tags": "1",
+      "rank": 2,
+      "title": "Menstrual Health in Adolescents with Congenital Heart Disease",
       "year": "2026",
-      "source": "Europe PMC",
-      "url": "https://europepmc.org/article/MED/42850789"
+      "matched_tags": [
+        "heavy periods"
+      ],
+      "why": "Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42483948",
+      "doi": ""
+    },
+    {
+      "rank": 3,
+      "title": "Personal Menstrual Health Knowledge in Individuals With\u00a0Intellectual Disabilities.",
+      "year": "2026",
+      "matched_tags": [
+        "heavy periods"
+      ],
+      "why": "Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Personal Menstrual Health Knowledge in Individuals With\u00a0Intellectual Disabilities. (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42905478",
+      "doi": ""
     }
   ],
+  "tag_evidence": [
+    {
+      "tag": "heavy periods",
+      "user_phrase": "heavy periods",
+      "confidence": "high"
+    },
+    {
+      "tag": "tired all day",
+      "user_phrase": "exhausted",
+      "confidence": "medium"
+    },
+    {
+      "tag": "acne on jawline",
+      "user_phrase": null,
+      "confidence": "low"
+    }
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "title": "Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue.",
+      "year": "2023",
+      "matched_tags": [
+        "heavy periods",
+        "tired all day"
+      ],
+      "why": "Shares 2 of your 3 tags (heavy periods, tired all day). It does not cover acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        },
+        {
+          "tag": "tired all day",
+          "user_phrase": "exhausted",
+          "article_phrase": null,
+          "text": "tired all day: you said \"exhausted\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37538011/",
+      "doi": ""
+    },
+    {
+      "rank": 2,
+      "title": "Menstrual Health in Adolescents with Congenital Heart Disease",
+      "year": "2026",
+      "matched_tags": [
+        "heavy periods"
+      ],
+      "why": "Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42483948",
+      "doi": ""
+    },
+    {
+      "rank": 3,
+      "title": "Personal Menstrual Health Knowledge in Individuals With\u00a0Intellectual Disabilities.",
+      "year": "2026",
+      "matched_tags": [
+        "heavy periods"
+      ],
+      "why": "Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, acne on jawline.",
+      "reasons": [
+        {
+          "tag": "heavy periods",
+          "user_phrase": "heavy periods",
+          "article_phrase": null,
+          "text": "heavy periods: you said \"heavy periods\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Personal Menstrual Health Knowledge in Individuals With\u00a0Intellectual Disabilities. (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42905478",
+      "doi": ""
+    }
+  ],
+  "articles_considered": 7,
+  "removed_claims": [],
+  "steps": [
+    "Compared 3 tags against 7 articles; 7 shared at least one tag.",
+    "Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.",
+    "Wrote an explanation and citation for the top 3.",
+    "Evidence check: 0 unsupported claims removed."
+  ],
+  "articles_considered": 7,
+  "removed_claims": [],
+  "steps": [
+    "Compared 3 tags against 7 articles; 7 shared at least one tag.",
+    "Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.",
+    "Wrote an explanation and citation for the top 3.",
+    "Evidence check: 0 unsupported claims removed."
+  ],
   "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
-  "trace_id": "e70af81b",
-  "contract_id": "19bde130-2342-4e4d-a2a4-267c0f0df2ac"
+  "trace_id": "a2e9b97a",
+  "contract_id": "b7de0de8-88fc-48cb-88d3-679b7e31136f"
 }

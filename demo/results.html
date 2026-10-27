@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tagging: Match and Explain</title>
+<style>
+  body { background: #fdf8ec; color: #222; font-family: system-ui, -apple-system, Arial, sans-serif; margin: 0; padding: 20px 16px; line-height: 1.6; }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  h2 { font-size: 19px; margin-top: 28px; border-top: 1px solid #ddd0b0; padding-top: 16px; }
+  .note { background: #fff7d6; border: 1px solid #e6d48a; padding: 12px 14px; border-radius: 8px; font-size: 14px; }
+  .answer { background: #eef6ea; border: 1px solid #b9d1a8; padding: 14px 16px; border-radius: 10px; font-size: 17px; margin: 16px 0; }
+  .card { background: #fff; border: 1px solid #e2d9bd; border-radius: 10px; padding: 16px; margin: 14px 0; }
+  .tag { display: inline-block; border: 1px solid rgba(0,0,0,.12); border-radius: 20px; padding: 2px 10px; margin: 2px 4px 2px 0; font-size: 14px; }
+  .tag.missing { background: #f4f1ea !important; color: #888; text-decoration: line-through; }
+  mark { border-radius: 4px; padding: 0 3px; color: inherit; font-style: normal; font-weight: 600; }
+  .label { font-size: 14px; color: #444; margin-left: 6px; }
+  .rank { font-weight: bold; color: #2f6b2f; }
+  .small { font-size: 14px; color: #555; }
+  blockquote { margin: 0; padding: 10px 14px; border-left: 4px solid #b9d1a8; background: #fbfaf5; font-size: 17px; }
+  .steps { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px; margin: 12px 0; }
+  .steps span { background: #fff; border: 1px solid #e2d9bd; border-radius: 20px; padding: 3px 10px; }
+  .steps b { color: #b9a77a; }
+  ul.tags { list-style: none; padding: 0; }
+  ul.tags li { margin: 8px 0; }
+  details { margin-top: 28px; border-top: 1px solid #ddd0b0; padding-top: 16px; }
+  summary { font-size: 19px; font-weight: bold; cursor: pointer; }
+  ol.log li { margin-bottom: 6px; }
+  code { background: #f0ead6; padding: 1px 5px; border-radius: 4px; }
+  a { color: #2f6b2f; }
+  nav.topics { position: sticky; top: 0; z-index: 10; background: rgba(253,248,236,.96); backdrop-filter: blur(4px);
+    border-bottom: 1px solid #ddd0b0; margin: 0 -16px; padding: 8px 16px; }
+  nav.topics .links { display: flex; gap: 4px; overflow-x: auto; white-space: nowrap; font-size: 14px; }
+  nav.topics .links a { text-decoration: none; color: #555; padding: 3px 10px; border-radius: 20px; }
+  nav.topics .links a.active { background: #2f6b2f; color: #fff; }
+  nav.topics .context { font-size: 13px; color: #555; margin-top: 4px; }
+  nav.topics .context .tag { font-size: 12px; padding: 0 8px; }
+  h2, details { scroll-margin-top: 90px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tagging feature: Match and Explain</h1>
+  <p class="small">Track 02, The Agent That Can Explain Why. Built from a real run on Oct 27, 2026.</p>
+
+  <nav class="topics">
+    <div class="links">
+      <a href="#wrote">What she wrote</a><a href="#concerns">Her concerns</a><a href="#research">Research and why</a><a href="#safety">Safety</a><a href="#how">How it worked</a>
+    </div>
+    <div class="context">Her concerns: <span class="tag" style="background:#f9d5e5">heavy periods</span> <span class="tag" style="background:#d7e8fa">tired all day</span> <span class="tag" style="background:#fbe3c4">skin changes</span></div>
+  </nav>
+
+  <div class="steps">
+    <span>She writes</span><b>&rarr;</b><span>Agent tags it</span><b>&rarr;</b><span>Finds research</span><b>&rarr;</b><span>Ranks it</span><b>&rarr;</b><span>Explains why</span>
+  </div>
+
+  <div class="note">
+    This tool summarizes published research. It is not medical advice. If you have health concerns, talk to a
+    qualified clinician. If you are in crisis, call or text 988 (US) or contact local emergency services.
+  </div>
+
+  <h2 id="wrote">1. What she wrote</h2>
+  <blockquote>I&#x27;ve had really <mark style="background:#f9d5e5" title="heavy periods">heavy periods</mark> for about six months, I&#x27;m <mark style="background:#d7e8fa" title="tired all day">exhausted</mark> all the time no matter how much I sleep, and my skin keeps <mark style="background:#fbe3c4" title="skin changes">breaking out</mark> like I&#x27;m a teenager again</blockquote>
+  <p class="small">Highlighted words are what the agent picked up. Sample input from <code>input_examples/input_example_1.json</code>.</p>
+
+  <div class="answer"><strong>What we found:</strong> The best match covers 2 of her 3 concerns (heavy periods, tired all day): <em>Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue.</em> (2023).</div>
+
+  <h2 id="concerns">2. Her concerns, and how the agent knew</h2>
+  <ul class="tags"><li><span class="tag" style="background:#f9d5e5">heavy periods</span><span class="label">&#10003; She said it ("heavy periods")</span></li><li><span class="tag" style="background:#d7e8fa">tired all day</span><span class="label">&asymp; She said something similar ("exhausted")</span></li><li><span class="tag" style="background:#fbe3c4">skin changes</span><span class="label">&asymp; She said something similar ("breaking out")</span></li></ul>
+
+  <h2 id="research">3. Matched research, and why</h2>
+  <p class="small">Ranked by how many of her concerns each article covers, then concerns she named in her own
+  words, then research grade when available, then newest.</p>
+  
+  <div class="card">
+    <p><span class="rank">1st match</span> - Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. <span class="small">(2023)</span></p>
+    <p><strong>Covers 2 of her 3 concerns:</strong> <span class="tag" style="background:#f9d5e5">heavy periods</span> <span class="tag" style="background:#d7e8fa">tired all day</span> <span class="tag missing" style="background:#fbe3c4">skin changes</span></p>
+    <p><strong>Why it matches:</strong></p>
+    <ul><li><span class="tag" style="background:#f9d5e5">heavy periods</span> she said "heavy periods", and the article is about this.</li><li><span class="tag" style="background:#d7e8fa">tired all day</span> she said "exhausted", and the article is about this.</li></ul>
+    <p class="small">Citation: Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed. doi:10.1002/ijgo.14943. <a href="https://pubmed.ncbi.nlm.nih.gov/37538011/">Read the article</a></p>
+  </div>
+  <div class="card">
+    <p><span class="rank">2nd match</span> - Menstrual Health in Adolescents with Congenital Heart Disease <span class="small">(2026)</span></p>
+    <p><strong>Covers 1 of her 3 concerns:</strong> <span class="tag" style="background:#f9d5e5">heavy periods</span> <span class="tag missing" style="background:#d7e8fa">tired all day</span> <span class="tag missing" style="background:#fbe3c4">skin changes</span></p>
+    <p><strong>Why it matches:</strong></p>
+    <ul><li><span class="tag" style="background:#f9d5e5">heavy periods</span> she said "heavy periods", and the article is about this.</li></ul>
+    <p class="small">Citation: Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC. doi:10.4274/jcrpe.galenos.2026.2026-2-11. <a href="https://europepmc.org/article/MED/42483948">Read the article</a></p>
+  </div>
+  <div class="card">
+    <p><span class="rank">3rd match</span> - Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. <span class="small">(2026)</span></p>
+    <p><strong>Covers 1 of her 3 concerns:</strong> <span class="tag" style="background:#f9d5e5">heavy periods</span> <span class="tag missing" style="background:#d7e8fa">tired all day</span> <span class="tag missing" style="background:#fbe3c4">skin changes</span></p>
+    <p><strong>Why it matches:</strong></p>
+    <ul><li><span class="tag" style="background:#f9d5e5">heavy periods</span> she said "heavy periods", and the article mentions "heavy menstrual bleeding".</li></ul>
+    <p class="small">Citation: Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. (2026). Europe PMC. doi:10.1016/j.healun.2026.10.011. <a href="https://europepmc.org/article/MED/42893703">Read the article</a></p>
+  </div>
+
+  <h2 id="safety">4. Safety path</h2>
+  <div class="card">
+    <blockquote>I&#x27;m so tired of all of this, honestly some days I don&#x27;t want to be here any more</blockquote>
+    <p><strong>Result:</strong> no research shown. The agent recognised a possible crisis and points to
+    support instead (988 in the US). <span class="small">Status <code>blocked</code>.</span></p>
+  </div>
+
+  <details id="how">
+    <summary>How the agent got here (run log and evidence check)</summary>
+    <ol class="log"><li>Scout Intent read the text: intent <code>symptom.cycle</code>, routed to the cycle, sleep, body tag groups (41 tags in those groups).</li><li>Tagger (<code>nvidia/nemotron-3.5-lightning-30b-a3b</code> via Meterless Nightshift) picked 3 tags; each was validated against the tag dictionary, 0 rejected.</li><li>Candidate articles came from <code>data/articles.csv</code>.</li><li>Tags given directly: 3 valid, 0 rejected.</li><li>Compared 3 tags against 79 articles; 12 shared at least one tag.</li><li>Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.</li><li>Wrote an explanation and citation for the top 3.</li><li>Evidence check: 0 unsupported claims removed.</li></ol>
+    <p><strong>Evidence check.</strong> Before showing results, the agent removes any quoted phrase not in her
+    text and any tag not on the article.</p>
+    <ul><li>None. Every claim was supported.</li></ul>
+  </details>
+</main>
+
+<script>
+  const links = [...document.querySelectorAll("nav.topics .links a")];
+  const targets = links.map(a => document.querySelector(a.getAttribute("href")));
+  function update() {
+    let current = 0;
+    targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < 120) current = i; });
+    links.forEach((a, i) => a.classList.toggle("active", i === current));
+  }
+  document.querySelector('a[href="#how"]').addEventListener("click", () => { document.getElementById("how").open = true; });
+  document.addEventListener("scroll", update, { passive: true });
+  update();
+</script>
+
+</body>
+</html>
