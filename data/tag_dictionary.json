@@ -1,7 +1,45 @@
 {
-    "sleep": ["bad sleep", "waking at night", "tired all day"],
-    "cycle": ["heavy periods", "missed period", "painful periods", "irregular cycle"],
-    "mood": ["low mood", "anxious", "mood swings", "brain fog"],
-    "body": ["skin changes", "weight changes", "hair loss", "pelvic pain"],
-    "conditions": ["pcos", "endometriosis", "postpartum depression", "menopause", "queer mental health", "gender-affirming care"]
-  }
+  "sleep": [
+    "bad sleep", "waking at night", "tired all day", "no energy",
+    "trouble falling asleep", "night sweats", "sleeping too much",
+    "wired but tired", "unrefreshing sleep"
+  ],
+  "cycle": [
+    "heavy periods", "missed period", "painful periods", "irregular cycle",
+    "spotting between periods", "no periods", "long periods", "short cycle",
+    "clotting", "pms", "period came early", "bleeding after sex",
+    "flooding through protection"
+  ],
+  "mood": [
+    "low mood", "anxious", "mood swings", "brain fog", "crying easily",
+    "irritable", "panic", "feeling disconnected", "no motivation",
+    "rage", "overwhelmed", "intrusive thoughts", "numb"
+  ],
+  "body": [
+    "skin changes", "acne on jawline", "weight changes", "hair loss",
+    "unwanted hair growth", "pelvic pain", "bloating", "sore breasts",
+    "hot flashes", "painful sex", "low sex drive", "headaches",
+    "back pain", "joint pain", "dizziness", "heart racing",
+    "cold all the time", "swelling", "dark patches on skin"
+  ],
+  "gut": [
+    "constipation", "diarrhoea", "nausea", "food sensitivity",
+    "pain when going to the toilet"
+  ],
+  "fertility": [
+    "trouble conceiving", "pregnancy worries", "after giving birth",
+    "miscarriage", "breastfeeding problems", "thinking about freezing eggs",
+    "contraception side effects"
+  ],
+  "care": [
+    "not being believed", "waiting for a diagnosis", "finding a doctor",
+    "affirming care", "cost of care", "no one explained",
+    "told to lose weight", "years without answers"
+  ],
+  "conditions": [
+    "pcos", "endometriosis", "adenomyosis", "fibroids",
+    "postpartum depression", "menopause", "perimenopause", "thyroid",
+    "endometrial cancer", "queer mental health", "gender-affirming care",
+    "hrt"
+  ]
+}
