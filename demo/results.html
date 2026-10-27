@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match and Explain Results</title>
+<style>
+  body { background: #fdf8ec; color: #222; font-family: system-ui, -apple-system, Arial, sans-serif; margin: 0; padding: 20px 16px; line-height: 1.6; }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  h2 { font-size: 19px; margin-top: 28px; border-top: 1px solid #ddd0b0; padding-top: 16px; }
+  .note { background: #fff7d6; border: 1px solid #e6d48a; padding: 12px 14px; border-radius: 8px; }
+  .card { background: #fff; border: 1px solid #e2d9bd; border-radius: 10px; padding: 16px; margin: 14px 0; }
+  .tag { display: inline-block; background: #eaf2e3; border: 1px solid #b9d1a8; border-radius: 20px; padding: 2px 10px; margin: 2px 4px 2px 0; font-size: 14px; }
+  .tag.missing { background: #f4f1ea; border-color: #d8d0bd; color: #777; }
+  .conf { font-size: 12px; color: #555; margin-left: 4px; }
+  .rank { font-weight: bold; color: #2f6b2f; }
+  .small { font-size: 14px; color: #555; }
+  blockquote { margin: 0; padding: 8px 14px; border-left: 4px solid #b9d1a8; background: #fbfaf5; font-style: italic; }
+  ol.log li { margin-bottom: 6px; }
+  code { background: #f0ead6; padding: 1px 5px; border-radius: 4px; }
+  a { color: #2f6b2f; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Women's Health Evidence Agent: Match and Explain</h1>
+  <p class="small">Team HerInsights - Track 02, The Agent That Can Explain Why. Built from a real run on Oct 27, 2026.</p>
+
+  <div class="note">
+    This tool summarizes published research. It is not medical advice. If you have health concerns, talk to a
+    qualified clinician. If you are in crisis, call or text 988 (US) or contact local emergency services.
+  </div>
+
+  <h2>1. What she wrote</h2>
+  <div class="card">
+    <blockquote>I&#x27;ve had really heavy periods for about six months, I&#x27;m exhausted all the time no matter how much I sleep, and my skin keeps breaking out like I&#x27;m a teenager again</blockquote>
+    <p class="small">Sample input from <code>input_examples/input_example_1.json</code>.</p>
+  </div>
+
+  <h2>2. Her tags, and why each was chosen</h2>
+  <div class="card"><ul><li><span class="tag">heavy periods</span><span class="conf">high confidence</span> - from your words "heavy periods"</li><li><span class="tag">no energy</span><span class="conf">low confidence</span> - inferred by the tagger; no exact phrase in your text</li><li><span class="tag">skin changes</span><span class="conf">low confidence</span> - inferred by the tagger; no exact phrase in your text</li></ul></div>
+
+  <h2>3. Matched research</h2>
+  <p class="small">Ranked by how many of her tags each article shares, then tags she stated in her own words,
+  then research grade when available, then newest.</p>
+  
+  <div class="card">
+    <p><span class="rank">1st match</span> - Menstrual Health in Adolescents with Congenital Heart Disease <span class="small">(2026)</span></p>
+    <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
+       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
+    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
+    <p class="small">Citation: Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC. doi:10.4274/jcrpe.galenos.2026.2026-2-11. <a href="https://europepmc.org/article/MED/42483948">Read the article</a></p>
+  </div>
+  <div class="card">
+    <p><span class="rank">2nd match</span> - Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. <span class="small">(2026)</span></p>
+    <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
+       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
+    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article mentions &quot;heavy menstrual bleeding&quot;.</li></ul>
+    <p class="small">Citation: Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. (2026). Europe PMC. doi:10.1016/j.healun.2026.10.011. <a href="https://europepmc.org/article/MED/42893703">Read the article</a></p>
+  </div>
+  <div class="card">
+    <p><span class="rank">3rd match</span> - Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. <span class="small">(2026)</span></p>
+    <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
+       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
+    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
+    <p class="small">Citation: Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. (2026). Europe PMC. doi:10.1111/jar.70315. <a href="https://europepmc.org/article/MED/42905478">Read the article</a></p>
+  </div>
+
+  <h2>4. Evidence check</h2>
+  <div class="card">
+    <p>Before showing results, the agent removes any quoted phrase not in her text and any tag not on the article.</p>
+    <ul><li>None. Every claim was supported.</li></ul>
+  </div>
+
+  <h2>5. Run log (how the agent reached this)</h2>
+  <ol class="log"><li>Scout Intent read the text: intent <code>symptom.cycle</code>, routed to the cycle, sleep, body tag groups (41 tags in those groups).</li><li>Tagger (<code>nvidia/nemotron-3.5-lightning-30b-a3b</code> via Meterless Nightshift) picked 3 tags; each was validated against the tag dictionary, 0 rejected.</li><li>Candidate articles came from <code>data/articles.csv</code>.</li><li>Compared 3 tags against 79 articles; 12 shared at least one tag.</li><li>Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.</li><li>Wrote an explanation and citation for the top 3.</li><li>Evidence check: 0 unsupported claims removed.</li><li>Safety check: a crisis message is routed to support before any research is shown (see below).</li></ol>
+
+  <h2>6. Safety path</h2>
+  <div class="card">
+    <blockquote>I&#x27;m so tired of all of this, honestly some days I don&#x27;t want to be here any more</blockquote>
+    <p><strong>Status:</strong> <code>blocked</code> - the person may be in crisis; route to support, not research.
+    No research is shown; the person is pointed to support (988 in the US).</p>
+  </div>
+</main>
+</body>
+</html>
