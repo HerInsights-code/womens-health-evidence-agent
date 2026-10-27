@@ -105,13 +105,13 @@ def build(input_path: str, tagger_path: str) -> str:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Match and Explain Results</title>
+<title>Tagging: Match and Explain</title>
 <style>{STYLE}</style>
 </head>
 <body>
 <main>
-  <h1>Women's Health Evidence Agent: Match and Explain</h1>
-  <p class="small">Team HerInsights - Track 02, The Agent That Can Explain Why. Built from a real run on {date.today():%b %d, %Y}.</p>
+  <h1>Tagging feature: Match and Explain</h1>
+  <p class="small">Track 02, The Agent That Can Explain Why. Built from a real run on {date.today():%b %d, %Y}.</p>
 
   <div class="note">
     This tool summarizes published research. It is not medical advice. If you have health concerns, talk to a

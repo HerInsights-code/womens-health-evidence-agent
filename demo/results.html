@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Match and Explain Results</title>
+<title>Tagging: Match and Explain</title>
 <style>
   body { background: #fdf8ec; color: #222; font-family: system-ui, -apple-system, Arial, sans-serif; margin: 0; padding: 20px 16px; line-height: 1.6; }
   main { max-width: 720px; margin: 0 auto; }
@@ -24,8 +24,8 @@
 </head>
 <body>
 <main>
-  <h1>Women's Health Evidence Agent: Match and Explain</h1>
-  <p class="small">Team HerInsights - Track 02, The Agent That Can Explain Why. Built from a real run on Oct 27, 2026.</p>
+  <h1>Tagging feature: Match and Explain</h1>
+  <p class="small">Track 02, The Agent That Can Explain Why. Built from a real run on Oct 27, 2026.</p>
 
   <div class="note">
     This tool summarizes published research. It is not medical advice. If you have health concerns, talk to a
@@ -39,35 +39,35 @@
   </div>
 
   <h2>2. Her tags, and why each was chosen</h2>
-  <div class="card"><ul><li><span class="tag">heavy periods</span><span class="conf">high confidence</span> - from your words "heavy periods"</li><li><span class="tag">no energy</span><span class="conf">low confidence</span> - inferred by the tagger; no exact phrase in your text</li><li><span class="tag">skin changes</span><span class="conf">low confidence</span> - inferred by the tagger; no exact phrase in your text</li></ul></div>
+  <div class="card"><ul><li><span class="tag">heavy periods</span><span class="conf">high confidence</span> - from your words "heavy periods"</li><li><span class="tag">tired all day</span><span class="conf">medium confidence</span> - from your words "exhausted"</li><li><span class="tag">skin changes</span><span class="conf">medium confidence</span> - from your words "breaking out"</li></ul></div>
 
   <h2>3. Matched research</h2>
   <p class="small">Ranked by how many of her tags each article shares, then tags she stated in her own words,
   then research grade when available, then newest.</p>
   
   <div class="card">
-    <p><span class="rank">1st match</span> - Menstrual Health in Adolescents with Congenital Heart Disease <span class="small">(2026)</span></p>
+    <p><span class="rank">1st match</span> - Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. <span class="small">(2023)</span></p>
+    <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span> <span class="tag">tired all day</span>
+       <br><strong>Does not cover:</strong> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 2 of your 3 tags (heavy periods, tired all day). It does not cover skin changes.</p>
+    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li><li>tired all day: you said &quot;exhausted&quot;, and the article is tagged with it.</li></ul>
+    <p class="small">Citation: Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed. doi:10.1002/ijgo.14943. <a href="https://pubmed.ncbi.nlm.nih.gov/37538011/">Read the article</a></p>
+  </div>
+  <div class="card">
+    <p><span class="rank">2nd match</span> - Menstrual Health in Adolescents with Congenital Heart Disease <span class="small">(2026)</span></p>
     <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
-       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
-    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
+       <br><strong>Does not cover:</strong> <span class="tag missing">tired all day</span> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, skin changes.</p>
     <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
     <p class="small">Citation: Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC. doi:10.4274/jcrpe.galenos.2026.2026-2-11. <a href="https://europepmc.org/article/MED/42483948">Read the article</a></p>
   </div>
   <div class="card">
-    <p><span class="rank">2nd match</span> - Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. <span class="small">(2026)</span></p>
+    <p><span class="rank">3rd match</span> - Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. <span class="small">(2026)</span></p>
     <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
-       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
-    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
+       <br><strong>Does not cover:</strong> <span class="tag missing">tired all day</span> <span class="tag missing">skin changes</span></p>
+    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, skin changes.</p>
     <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article mentions &quot;heavy menstrual bleeding&quot;.</li></ul>
     <p class="small">Citation: Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. (2026). Europe PMC. doi:10.1016/j.healun.2026.10.011. <a href="https://europepmc.org/article/MED/42893703">Read the article</a></p>
-  </div>
-  <div class="card">
-    <p><span class="rank">3rd match</span> - Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. <span class="small">(2026)</span></p>
-    <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
-       <br><strong>Does not cover:</strong> <span class="tag missing">no energy</span> <span class="tag missing">skin changes</span></p>
-    <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover no energy, skin changes.</p>
-    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
-    <p class="small">Citation: Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. (2026). Europe PMC. doi:10.1111/jar.70315. <a href="https://europepmc.org/article/MED/42905478">Read the article</a></p>
   </div>
 
   <h2>4. Evidence check</h2>
