@@ -51,7 +51,7 @@
        <br><strong>Does not cover:</strong> <span class="tag missing">skin changes</span></p>
     <p><strong>Why it matches:</strong> Shares 2 of your 3 tags (heavy periods, tired all day). It does not cover skin changes.</p>
     <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li><li>tired all day: you said &quot;exhausted&quot;, and the article is tagged with it.</li></ul>
-    <p class="small">Citation: Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed. doi:10.1002/ijgo.14943. <a href="https://pubmed.ncbi.nlm.nih.gov/37538011/">Read the article</a></p>
+    <p class="small">Citation: Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue. (2023). PubMed.. <a href="https://pubmed.ncbi.nlm.nih.gov/37538011/">Read the article</a></p>
   </div>
   <div class="card">
     <p><span class="rank">2nd match</span> - Menstrual Health in Adolescents with Congenital Heart Disease <span class="small">(2026)</span></p>
@@ -59,15 +59,15 @@
        <br><strong>Does not cover:</strong> <span class="tag missing">tired all day</span> <span class="tag missing">skin changes</span></p>
     <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, skin changes.</p>
     <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
-    <p class="small">Citation: Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC. doi:10.4274/jcrpe.galenos.2026.2026-2-11. <a href="https://europepmc.org/article/MED/42483948">Read the article</a></p>
+    <p class="small">Citation: Menstrual Health in Adolescents with Congenital Heart Disease (2026). Europe PMC.. <a href="https://europepmc.org/article/MED/42483948">Read the article</a></p>
   </div>
   <div class="card">
-    <p><span class="rank">3rd match</span> - Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. <span class="small">(2026)</span></p>
+    <p><span class="rank">3rd match</span> - Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. <span class="small">(2026)</span></p>
     <p><strong>Matches your tags:</strong> <span class="tag">heavy periods</span>
        <br><strong>Does not cover:</strong> <span class="tag missing">tired all day</span> <span class="tag missing">skin changes</span></p>
     <p><strong>Why it matches:</strong> Shares 1 of your 3 tags (heavy periods). It does not cover tired all day, skin changes.</p>
-    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article mentions &quot;heavy menstrual bleeding&quot;.</li></ul>
-    <p class="small">Citation: Menstrual Health in Children, Adolescents, and Young Adults with Cardiac Disease: An Underrecognized Component of Heart Failure, Mechanical Circulatory Support, and Transplant Care. (2026). Europe PMC. doi:10.1016/j.healun.2026.10.011. <a href="https://europepmc.org/article/MED/42893703">Read the article</a></p>
+    <ul><li>heavy periods: you said &quot;heavy periods&quot;, and the article is tagged with it.</li></ul>
+    <p class="small">Citation: Personal Menstrual Health Knowledge in Individuals With Intellectual Disabilities. (2026). Europe PMC.. <a href="https://europepmc.org/article/MED/42905478">Read the article</a></p>
   </div>
 
   <h2>4. Evidence check</h2>
@@ -77,7 +77,7 @@
   </div>
 
   <h2>5. Run log (how the agent reached this)</h2>
-  <ol class="log"><li>Scout Intent read the text: intent <code>symptom.cycle</code>, routed to the cycle, sleep, body tag groups (41 tags in those groups).</li><li>Tagger (<code>nvidia/nemotron-3.5-lightning-30b-a3b</code> via Meterless Nightshift) picked 3 tags; each was validated against the tag dictionary, 0 rejected.</li><li>Candidate articles came from <code>data/articles.csv</code>.</li><li>Compared 3 tags against 79 articles; 12 shared at least one tag.</li><li>Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.</li><li>Wrote an explanation and citation for the top 3.</li><li>Evidence check: 0 unsupported claims removed.</li><li>Safety check: a crisis message is routed to support before any research is shown (see below).</li></ol>
+  <ol class="log"><li>Scout Intent read the text: intent <code>symptom.cycle</code>, routed to the cycle, sleep, body tag groups (41 tags in those groups).</li><li>Tagger (<code>nvidia/nemotron-3.5-lightning-30b-a3b</code> via Meterless Nightshift) picked 3 tags; each was validated against the tag dictionary, 0 rejected.</li><li>Candidate articles came from <code>zetaris</code>.</li><li>Compared 3 tags against 6 articles; 6 shared at least one tag.</li><li>Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.</li><li>Wrote an explanation and citation for the top 3.</li><li>Evidence check: 0 unsupported claims removed.</li><li>Safety check: a crisis message is routed to support before any research is shown (see below).</li></ol>
 
   <h2>6. Safety path</h2>
   <div class="card">

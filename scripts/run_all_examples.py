@@ -34,7 +34,11 @@ def main() -> None:
                 "error": {"type": type(error).__name__, "message": str(error)[:200]},
             }
 
-        result = {"run_id": payload.get("run_id", path.stem), **result}
+        result = {
+            "run_id": payload.get("run_id", path.stem),
+            "input": {"query": query},
+            **result,
+        }
         out_path = OUT_DIR / f"updated_output_from_{path.name}"
         out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
 

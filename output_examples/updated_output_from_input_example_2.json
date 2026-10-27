@@ -11,53 +11,175 @@
   "tags_considered": 39,
   "tags": [
     "pcos",
-    "told to lose weight",
-    "not being believed"
+    "not being believed",
+    "told to lose weight"
   ],
   "rejected": [],
+  "article_source": "zetaris",
   "matches": [
     {
+      "rank": 1,
       "title": "Criteria, prevalence, and phenotypes of polycystic ovary syndrome.",
-      "tags": "pcos;irregular cycle;unwanted hair growth;told to lose weight",
-      "shared_tags": "2",
       "year": "2016",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/27233760/"
+      "matched_tags": [
+        "pcos",
+        "told to lose weight"
+      ],
+      "why": "Shares 2 of your 3 tags (pcos, told to lose weight). It does not cover not being believed.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        },
+        {
+          "tag": "told to lose weight",
+          "user_phrase": null,
+          "article_phrase": null,
+          "text": "told to lose weight: the tagger picked this from your description, and the article is tagged with it."
+        }
+      ],
+      "citation": "Criteria, prevalence, and phenotypes of polycystic ovary syndrome. (2016). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27233760/",
+      "doi": ""
     },
     {
+      "rank": 2,
       "title": "Polyendocrine metabolic ovarian syndrome (PMOS)/polycystic ovary syndrome (PCOS): current and future trends.",
-      "tags": "pcos;irregular cycle;weight changes",
-      "shared_tags": "1",
       "year": "2026",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42294900/"
+      "matched_tags": [
+        "pcos"
+      ],
+      "why": "Shares 1 of your 3 tags (pcos). It does not cover not being believed, told to lose weight.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Polyendocrine metabolic ovarian syndrome (PMOS)/polycystic ovary syndrome (PCOS): current and future trends. (2026). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42294900/",
+      "doi": ""
     },
     {
-      "title": "Polycystic ovary syndrome (PCOS), an inflammatory, systemic, lifestyle endocrinopathy.",
-      "tags": "pcos;trouble conceiving;weight changes",
-      "shared_tags": "1",
-      "year": "2018",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29678491/"
-    },
-    {
-      "title": "Polycystic ovary syndrome: definition, aetiology, diagnosis and treatment.",
-      "tags": "pcos;irregular cycle;weight changes",
-      "shared_tags": "1",
-      "year": "2018",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29569621/"
-    },
-    {
-      "title": "Insulin resistance in polycystic ovary syndrome across various tissues: an updated review of pathogenesis, evaluation, and treatment.",
-      "tags": "pcos;weight changes;irregular cycle",
-      "shared_tags": "1",
-      "year": "2023",
-      "source": "PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36631836/"
+      "rank": 3,
+      "title": "Effects of metformin and omega-3 fatty acids on neurobehavioural outcomes in letrozole-induced polycystic ovary syndrome mice.",
+      "year": "2026",
+      "matched_tags": [
+        "pcos"
+      ],
+      "why": "Shares 1 of your 3 tags (pcos). It does not cover not being believed, told to lose weight.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Effects of metformin and omega-3 fatty acids on neurobehavioural outcomes in letrozole-induced polycystic ovary syndrome mice. (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42906733",
+      "doi": ""
     }
   ],
+  "tag_evidence": [
+    {
+      "tag": "pcos",
+      "user_phrase": "PCOS",
+      "confidence": "high"
+    },
+    {
+      "tag": "not being believed",
+      "user_phrase": null,
+      "confidence": "low"
+    },
+    {
+      "tag": "told to lose weight",
+      "user_phrase": null,
+      "confidence": "low"
+    }
+  ],
+  "results": [
+    {
+      "rank": 1,
+      "title": "Criteria, prevalence, and phenotypes of polycystic ovary syndrome.",
+      "year": "2016",
+      "matched_tags": [
+        "pcos",
+        "told to lose weight"
+      ],
+      "why": "Shares 2 of your 3 tags (pcos, told to lose weight). It does not cover not being believed.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        },
+        {
+          "tag": "told to lose weight",
+          "user_phrase": null,
+          "article_phrase": null,
+          "text": "told to lose weight: the tagger picked this from your description, and the article is tagged with it."
+        }
+      ],
+      "citation": "Criteria, prevalence, and phenotypes of polycystic ovary syndrome. (2016). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27233760/",
+      "doi": ""
+    },
+    {
+      "rank": 2,
+      "title": "Polyendocrine metabolic ovarian syndrome (PMOS)/polycystic ovary syndrome (PCOS): current and future trends.",
+      "year": "2026",
+      "matched_tags": [
+        "pcos"
+      ],
+      "why": "Shares 1 of your 3 tags (pcos). It does not cover not being believed, told to lose weight.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Polyendocrine metabolic ovarian syndrome (PMOS)/polycystic ovary syndrome (PCOS): current and future trends. (2026). PubMed.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42294900/",
+      "doi": ""
+    },
+    {
+      "rank": 3,
+      "title": "Effects of metformin and omega-3 fatty acids on neurobehavioural outcomes in letrozole-induced polycystic ovary syndrome mice.",
+      "year": "2026",
+      "matched_tags": [
+        "pcos"
+      ],
+      "why": "Shares 1 of your 3 tags (pcos). It does not cover not being believed, told to lose weight.",
+      "reasons": [
+        {
+          "tag": "pcos",
+          "user_phrase": "PCOS",
+          "article_phrase": null,
+          "text": "pcos: you said \"PCOS\", and the article is tagged with it."
+        }
+      ],
+      "citation": "Effects of metformin and omega-3 fatty acids on neurobehavioural outcomes in letrozole-induced polycystic ovary syndrome mice. (2026). Europe PMC.",
+      "url": "https://europepmc.org/article/MED/42906733",
+      "doi": ""
+    }
+  ],
+  "articles_considered": 18,
+  "removed_claims": [],
+  "steps": [
+    "Compared 3 tags against 18 articles; 18 shared at least one tag.",
+    "Ranked by number of shared tags, then tags stated in her own words over inferred ones, then relevance score if graded, then newest year.",
+    "Wrote an explanation and citation for the top 3.",
+    "Evidence check: 0 unsupported claims removed."
+  ],
   "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
-  "trace_id": "640dcd1f",
-  "contract_id": "3e4a23c4-dd33-438c-9746-831d6520d1f2"
+  "trace_id": "46cd7526",
+  "contract_id": "0e0d6b8b-28ed-4ff4-bb36-dbc1e166714d"
 }
