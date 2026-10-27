@@ -192,6 +192,67 @@ def evidence_check(results: list[dict], query: str, matches: list[dict]) -> tupl
     return checked, removed
 
 
+UNRELATED_GROUPS = {"conditions"}  # pcos and endometriosis are not stand-ins for each other
+
+
+def related_tags(tags: list[str], groups: dict[str, list[str]]) -> dict[str, tuple[str, str]]:
+    """Other tags in the same group as each of hers: {related tag: (her tag, group)}."""
+    related: dict[str, tuple[str, str]] = {}
+    for group, members in groups.items():
+        if group in UNRELATED_GROUPS:
+            continue
+        for tag in tags:
+            if tag in members:
+                for other in members:
+                    if other not in tags and other not in related:
+                        related[other] = (tag, group)
+    return related
+
+
+def match_with_retry(query: str, tags: list[str], fetch, synonyms: dict, groups: dict[str, list[str]]) -> dict:
+    """Matcher retry: if nothing matches her tags, widen once to related tags in the same groups.
+
+    fetch(tags) returns candidate articles. Results from the retry are
+    marked related, and each reason names the concern it stands in for.
+    Runs at most one retry.
+    """
+    first = match_and_explain(query, tags, fetch(tags), synonyms)
+    first["retries"] = []
+    if first["results"] or not tags:
+        return first
+
+    related = related_tags(tags, groups)
+    if not related:
+        reason = f"No article matched {', '.join(tags)}, and there are no related tags to widen to."
+        first["retries"].append({"step": "matching", "reason": reason, "widened_to": []})
+        first["steps"].append(f"Retry skipped: {reason}")
+        return first
+
+    widened = list(related)
+    reason = f"No article matched {', '.join(tags)}; widened once to related tags: {', '.join(widened)}."
+    log.info("matcher retry: %s", reason)
+    second = match_and_explain(query, widened, fetch(widened), synonyms)
+
+    for result in second["results"]:
+        result["related"] = True
+        stands_for = sorted({related[t][0] for t in result["matched_tags"]})
+        result["why"] = (
+            f"Nothing matched her exact concerns, so this is related research: it covers "
+            f"{', '.join(result['matched_tags'])}, close to her {', '.join(stands_for)}."
+        )
+        for r in result["reasons"]:
+            her_tag, group = related[r["tag"]]
+            r["related_to"] = her_tag
+            r["text"] = f"{r['tag']}: related to her concern \"{her_tag}\" ({group}), and the article covers it."
+
+    return {
+        **second,
+        "tag_evidence": first["tag_evidence"],
+        "retries": [{"step": "matching", "reason": reason, "widened_to": widened}],
+        "steps": first["steps"] + [f"Retry: {reason}"] + second["steps"],
+    }
+
+
 def match_and_explain(query: str, tags: list[str], articles: list[dict], synonyms: dict) -> dict:
     """Rank, explain, and evidence-check. Returns results plus a step log."""
     steps = []

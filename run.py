@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 from app.engines.scout_intent import ScoutIntent
-from app.explain import load_articles, match_and_explain
+from app.explain import load_articles, match_with_retry
 from app.tagging import load_dictionary, load_synonyms, tag_paragraph, validate_tags
 
 CANDIDATE_LIMIT = 20
@@ -69,8 +69,15 @@ def run(query: str, given_tags: list[str] | None = None) -> dict:
         raw, routed_model = given_tags, "none (tags given with --tags)"
     tags, rejected = validate_tags(raw, dictionary, synonyms)
 
-    articles, article_source = fetch_candidates(tags)
-    matched = match_and_explain(query, tags, articles, synonyms)
+    sources: list[str] = []
+
+    def fetch(search_tags: list[str]) -> list[dict]:
+        articles, source = fetch_candidates(search_tags)
+        sources.append(source)
+        return articles
+
+    matched = match_with_retry(query, tags, fetch, synonyms, groups)
+    article_source = sources[-1]
 
     return {
         "status": "success" if matched["results"] else "partial",

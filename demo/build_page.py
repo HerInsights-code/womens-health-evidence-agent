@@ -117,7 +117,9 @@ def highlight(query: str, tag_evidence: list[dict], colours: dict[str, str]) -> 
 
 
 def reason_html(reason: dict, colours: dict[str, str]) -> str:
-    said = f'she said "{escape(reason["user_phrase"])}"' if reason["user_phrase"] else "the agent inferred it from her description"
+    if reason.get("related_to"):
+        return f"<li>{pill(reason['tag'], colours)} {escape(reason['text'])}</li>"
+    said =f'she said "{escape(reason["user_phrase"])}"' if reason["user_phrase"] else "the agent inferred it from her description"
     where = (
         f'the article mentions "{escape(reason["article_phrase"])}"'
         if reason["article_phrase"]
