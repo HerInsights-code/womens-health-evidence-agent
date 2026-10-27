@@ -1,5 +1,8 @@
 {
   "run_id": "demo-001",
+  "input": {
+    "query": "I've had really heavy periods for about six months, I'm exhausted all the time no matter how much I sleep, and my skin keeps breaking out like I'm a teenager again"
+  },
   "status": "success",
   "intent": "symptom.cycle",
   "confidence": 1.0,
@@ -12,7 +15,7 @@
   "tags": [
     "heavy periods",
     "no energy",
-    "skin changes"
+    "acne on jawline"
   ],
   "rejected": [],
   "matches": [
@@ -49,15 +52,15 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/35253138/"
     },
     {
-      "title": "Menstrual Health in Adolescents with Congenital Heart Disease",
-      "tags": "painful periods;irregular cycle;heavy periods",
+      "title": "Comparison of Clinical, Metabolic, and Hormonal Profiles in Obese Versus Lean Women With Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis.",
+      "tags": "irregular cycle;acne on jawline;dark patches on skin;unwanted hair growth",
       "shared_tags": "1",
       "year": "2026",
       "source": "Europe PMC",
-      "url": "https://europepmc.org/article/MED/42483948"
+      "url": "https://europepmc.org/article/MED/42850789"
     }
   ],
   "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
-  "trace_id": "7ba72325",
-  "contract_id": "7398ed1a-da9a-4569-8bf4-edd5db1fcbbf"
+  "trace_id": "e70af81b",
+  "contract_id": "19bde130-2342-4e4d-a2a4-267c0f0df2ac"
 }

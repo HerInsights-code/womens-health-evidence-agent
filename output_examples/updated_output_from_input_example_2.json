@@ -1,5 +1,8 @@
 {
   "run_id": "demo-002",
+  "input": {
+    "query": "I think I might have PCOS but my doctor keeps brushing me off and says I just need to lose weight"
+  },
   "status": "success",
   "intent": "experience.care",
   "confidence": 1.0,
@@ -11,8 +14,8 @@
   "tags_considered": 39,
   "tags": [
     "pcos",
-    "told to lose weight",
-    "not being believed"
+    "not being believed",
+    "told to lose weight"
   ],
   "rejected": [],
   "matches": [
@@ -58,6 +61,6 @@
     }
   ],
   "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
-  "trace_id": "640dcd1f",
-  "contract_id": "3e4a23c4-dd33-438c-9746-831d6520d1f2"
+  "trace_id": "769c45d6",
+  "contract_id": "91a46761-234e-4c49-962a-3d59c8bbc68f"
 }

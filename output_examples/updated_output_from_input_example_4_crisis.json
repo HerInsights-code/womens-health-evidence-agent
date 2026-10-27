@@ -1,9 +1,12 @@
 {
   "run_id": "demo-004",
+  "input": {
+    "query": "I'm so tired of all of this, honestly some days I don't want to be here any more"
+  },
   "status": "blocked",
   "reason": "the person may be in crisis; route to support, not research",
   "flags": [
     "crisis"
   ],
-  "trace_id": "3984af1e"
+  "trace_id": "473191c8"
 }
