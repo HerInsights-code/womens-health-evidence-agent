@@ -1,0 +1,63 @@
+{
+  "run_id": "demo-001",
+  "status": "success",
+  "intent": "symptom.cycle",
+  "confidence": 1.0,
+  "tag_groups": [
+    "cycle",
+    "sleep",
+    "body"
+  ],
+  "tags_considered": 41,
+  "tags": [
+    "heavy periods",
+    "no energy",
+    "skin changes"
+  ],
+  "rejected": [],
+  "matches": [
+    {
+      "title": "Menstrual health: a definition for policy, practice, and research.",
+      "tags": "irregular cycle;heavy periods;waiting for a diagnosis",
+      "shared_tags": "1",
+      "year": "2021",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33910492/"
+    },
+    {
+      "title": "Heavy menstrual bleeding, iron deficiency, and iron deficiency anemia: Framing the issue.",
+      "tags": "heavy periods;tired all day;brain fog",
+      "shared_tags": "1",
+      "year": "2023",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37538011/"
+    },
+    {
+      "title": "Heavy menstrual bleeding and dysmenorrhea in adolescents: A systematic review of self-management strategies, quality of life, and unmet needs.",
+      "tags": "heavy periods;painful periods",
+      "shared_tags": "1",
+      "year": "2024",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38654586/"
+    },
+    {
+      "title": "Screening of Perinatal Depression Using the Edinburgh Postpartum Depression Scale.",
+      "tags": "postpartum depression;low mood;no energy;mood swings",
+      "shared_tags": "1",
+      "year": "2022",
+      "source": "PubMed;Semantic Scholar",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35253138/"
+    },
+    {
+      "title": "Menstrual Health in Adolescents with Congenital Heart Disease",
+      "tags": "painful periods;irregular cycle;heavy periods",
+      "shared_tags": "1",
+      "year": "2026",
+      "source": "Europe PMC",
+      "url": "https://europepmc.org/article/MED/42483948"
+    }
+  ],
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "trace_id": "7ba72325",
+  "contract_id": "7398ed1a-da9a-4569-8bf4-edd5db1fcbbf"
+}

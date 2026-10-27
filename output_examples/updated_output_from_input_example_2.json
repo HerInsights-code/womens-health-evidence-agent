@@ -1,0 +1,63 @@
+{
+  "run_id": "demo-002",
+  "status": "success",
+  "intent": "experience.care",
+  "confidence": 1.0,
+  "tag_groups": [
+    "care",
+    "conditions",
+    "body"
+  ],
+  "tags_considered": 39,
+  "tags": [
+    "pcos",
+    "told to lose weight",
+    "not being believed"
+  ],
+  "rejected": [],
+  "matches": [
+    {
+      "title": "Criteria, prevalence, and phenotypes of polycystic ovary syndrome.",
+      "tags": "pcos;irregular cycle;unwanted hair growth;told to lose weight",
+      "shared_tags": "2",
+      "year": "2016",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27233760/"
+    },
+    {
+      "title": "Polyendocrine metabolic ovarian syndrome (PMOS)/polycystic ovary syndrome (PCOS): current and future trends.",
+      "tags": "pcos;irregular cycle;weight changes",
+      "shared_tags": "1",
+      "year": "2026",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42294900/"
+    },
+    {
+      "title": "Polycystic ovary syndrome (PCOS), an inflammatory, systemic, lifestyle endocrinopathy.",
+      "tags": "pcos;trouble conceiving;weight changes",
+      "shared_tags": "1",
+      "year": "2018",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29678491/"
+    },
+    {
+      "title": "Polycystic ovary syndrome: definition, aetiology, diagnosis and treatment.",
+      "tags": "pcos;irregular cycle;weight changes",
+      "shared_tags": "1",
+      "year": "2018",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29569621/"
+    },
+    {
+      "title": "Insulin resistance in polycystic ovary syndrome across various tissues: an updated review of pathogenesis, evaluation, and treatment.",
+      "tags": "pcos;weight changes;irregular cycle",
+      "shared_tags": "1",
+      "year": "2023",
+      "source": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36631836/"
+    }
+  ],
+  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "trace_id": "640dcd1f",
+  "contract_id": "3e4a23c4-dd33-438c-9746-831d6520d1f2"
+}

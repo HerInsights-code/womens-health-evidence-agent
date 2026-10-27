@@ -45,7 +45,7 @@ def article_tag_evidence(article: dict, tags: list[str], synonyms: dict) -> dict
     """
     own_tags = {
         synonyms.get(t.strip().lower(), t.strip().lower())
-        for t in article.get("tags", "").split("|")
+        for t in re.split(r"[;|]", article.get("tags") or "")
         if t.strip()
     }
     text = f"{article.get('title', '')} {article.get('summary', '')}"
